@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Medical</title>
+    <link rel="stylesheet" href="StyleSheet/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="index" class="index">
+            <div class="options">
+                <button id="new-user" class="new-user  btn">New User</button>
+                <button id="user" class="selected user btn">Existing User</button>
+            </div>
+            <div class="page" id="signinpage">
+                <div class="input">
+                    <label for="email">Email </label>
+                    <input type="email" name="email" id="email" onfocusout="checkmail('email')">
+                    <label id="emailmessage" class="message">Invalid email</label>
+                </div>
+                <div class="input">
+                    <label for="password">Password </label>
+                    <input type="password" name="password" id="password" >
+                    <label id="signinmessage" class="message">Email ID or password Incorrect</label>
+                </div>
+                <button id="signin" class="pagebtn" onclick="signIn()">Signin</button>
+            </div>
+            <div class="page notshow" id="signuppage">
+                <div class="input">
+
+                    <label for="username">UserName</label>
+                    <input  type="text" name="username" id="username" onfocusout="checkusername('username')">
+                    <label class="message" id="usernamemessage">Enter a valid Name</label>
+                </div>
+                <div class="input">
+                    <label for="email1">Email </label>
+                    <input  type="email" name="email" id="email1" onfocusout="checkmail('email1')">
+                    <label class="message" id="email1message"></label>
+                </div>
+                <div class="input">
+                    <label for="password1">Password </label>
+                    <input type="password" name="password" id="password1" onfocusout="checkPass('password1')">
+                    <label class="message" id="password1message">Too Short or In valid</label>
+                </div>
+                <div class="input">
+                    <label for="confirmpassword">Confirm Password </label>
+                    <input type="text" name="confirmpassword" id="confirmpassword" onkeyup="confirmPass('confirmpassword')">
+                    <label class="message" id="confirmpasswordmessage">Password doesn't match</label>
+                </div>
+                <div class="input">
+                    <label for="phone">Phone Number </label>
+                    <input type="tel" name="phone" id="phone" onfocusout="checkPhone('phone')">
+                    <label class="message" id="phonemessage">Invalid phone number</label>
+                </div>
+                <button id="signup" onclick="signUp()" class="pagebtn">Signup</button>
+            </div>
+
+        </div>
+
+
+        <div class="mainpage notshow" id="mainpage">
+            <label id="namedisplay" class="namedisplay" ></label>
+            <ul class="menubar">
+                <li onclick="homeselected()" id="home" class="selectedmenu menu" >Home</li>
+                <li onclick="medicineselected()" id="medicine" class="menu" >MedicineDetails</li>
+                <li onclick="purchaseselected()" id="purchase" class="menu">Purchase</li>
+                <li onclick="cancelselected()" id="cancel" class="menu">Cancel</li>
+                <li onclick="topupselected()" id="topup" class="menu">Topup</li>
+                <li onclick="orderhistoryselected()" id="orderhistory" class="menu">Order History</li>
+                <li onclick="showbalanceselected()" id="showbalance" class="menu">Show Balance</li>
+                <li onclick="signoutselected()" id="signout" class="menu">Sign out</li>
+            </ul>
+            <div id="homepage" class="homepage menupage">
+                
+            </div>
+            <div id="medicinepage" class="menupage">
+                <div id="table" class="table">
+                    <button class="add" id="add" onclick="addMedicineForm()">Add</button>
+                    <table id="medicinetable" >
+
+                    </table>
+                </div>
+                <div id="medicineform" class="form">
+                    <div class="medicineform">
+
+                        <div class="input">
+                            <label for="medicinename">Medicine Name</label>
+                            <input type="text" id="medicinename" onfocusout="checkmedicinename('medicinename')">
+                            <label id="medicinenamemessage" class="message">Invalid medicine name</label>
+                        </div>
+                        <div class="input">
+                            <label for="medicinequantity">Quantity</label>
+                            <input type="number" id="medicinequantity" onfocusout="checkNumber('medicinequantity')" >
+                            <label id="medicinequantitymessage" class="message">Invalid number</label>
+                        </div>
+                        <div class="input">
+                            <label for="medicineprice">Price</label>
+                            <input type="number" id="medicineprice" onfocusout="checkPrice('medicineprice')">
+                            <label id="medicinepricemessage" class="message">Invalid amount</label>
+                        </div>
+                        <div class="input">
+                            <label for="expirydate">Expiry Date</label>
+                            <input type="date" id="expirydate" value="" onfocusout="checkdate('expirydate')" >
+                            <label id="expirydatemessage" class="message">Invalid date </label>
+                        </div>
+                        <div>
+                            <button class="confirmadd" id="confirmadd" onclick="confirmAddMedicine()">confirm</button>
+                            <button class="delete" id="cancel" onclick="cancelAddMedicine()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="purchasepage" class="menupage">
+                <div class="table" id="handlepurchase">
+                <table id="purchasetable"  class="purchasetable">
+
+                </table>
+                </div>
+                <div id="quantityform" class="quantityform medicineform">
+                    <div class="input">
+                        <label for="purchasequantity">Quantity</label>
+                        <input type="number" id="purchasequantity">
+                    </div>
+                    <div>
+                        <button onclick="ConfirmPurchase()" id="confirmpurchase" class="confirmadd">Confirm</button>
+                        <button onclick="CancelPurchase()" id="cancelpurchase" class="delete">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div id="cancelpage" class="menupage">
+                <div id="cancelinitiate" class="table">
+                    <table id="canceltable"  class="historytable">
+    
+                    </table>
+                </div>
+            </div>
+            <div id="orderhistorypage" class="menupage">
+                <div id="historyinitiate" class="table">
+                    <table id="historytable"  class="historytable">
+    
+                    </table>
+                </div>
+            </div>
+            <div id="topuppage" class="menupage">
+                <div class="getamountpage">
+                    <div id="balancemessage" class="balancemessage">
+                        
+                    </div>
+                    <div class="input">
+                        <label for="amount">Enter Amount</label>
+                        <input type="text" id="amount" onkeyup="checkamount('amount')">
+                        <label id="amountmessage" class="message">Enter a valid Amount</label>
+                    </div>
+                    <button onclick="recharge()" class="pagebtn">Confirm</button>
+                </div>
+            </div>
+            <div id="showbalancepage" class="menupage">
+                <h1 id="Balance"></h1>
+            </div>
+        </div>
+    </div>
+    <script src="TypeScript/JavaScript/index.js"></script>
+</body>
+</html>
