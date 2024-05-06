@@ -1,0 +1,273 @@
+*{
+    margin: 0;
+}
+.wrapper
+{
+    min-width: 100%;
+    min-height: 100vh;
+    align-content: center;
+    
+}
+.index
+{
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    max-width: 25%;
+    margin: auto;
+    padding: 2%;
+    box-shadow: 0 0 10px 1px rgb(86, 86, 86);
+    background-color: #E8E6D9;
+}
+.options{
+    width: 100%;
+    border: none;
+    display: flex;
+}
+
+.btn
+{
+    min-width: 50%;
+    padding: 4%;
+    border: none;
+    cursor: pointer;
+    background-color: #E4DAC2;
+    border-radius: 0.3rem;
+    
+    
+}
+.selected{
+    box-shadow: 0 0 10px 1px rgb(126, 123, 123);
+    border: 1px solid black;
+    background-color: #C4BDAC;
+}
+.pagebtn
+{
+    width: 30%;
+    border: none;
+    outline: none;
+    padding: 5%;
+    border-radius: 0.5rem;
+    background-color: #E9CCB1;
+    color: BLACK;
+    cursor: pointer;
+}
+.input-box
+{
+    border-radius: 0.3rem;
+    border: 1px solid black;
+    background-color: #f3ece7;
+    padding: 0.3rem;
+}
+
+.input
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+    text-align: left;
+    justify-content: left;
+}
+.message
+{
+    color: orangered;
+    display: none;
+}
+.page
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    padding: 10%;
+    width: 60%;
+    
+}
+
+.mainpage
+{
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    
+}
+.menubar
+{
+    width: 90%;
+    display: flex;
+    min-height: 60px;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    align-items: center;
+    background-color: #E9CCB1;
+    border-radius: 0.3rem;
+
+}
+.pipe
+{
+    border-radius: 0.3rem;
+    min-width: 4px;
+    min-height: 7vh;
+    align-items: center;
+    background-color: #999999;
+}
+.pipe1
+{
+    min-height: 2vh !important;
+    max-height: 4vh;
+    margin:0 2%;
+}
+#namedisplay
+{
+    margin-right: 2%;
+}
+.menu
+{
+    width: 15%;
+    padding:2%;
+    height: 90%;
+    color: black;
+    cursor: pointer;
+    border-radius: 0.3rem;
+
+}
+.menu:hover
+{
+    background-color: #E8E6D9;
+}
+
+.selectedmenu
+{
+    background-color: #E8E6D9;
+}
+.menupage
+{
+    min-height: calc(100vh - 250px);
+    display: none;
+    margin:4% 0;
+    align-items: center;
+    justify-content: center;
+}
+.namedisplay
+{
+    position: relative;
+    right:-80%;
+    /* top:1%; */
+    min-width: 7%;
+    max-width: max-content;
+    display: flex;
+    
+    background-color:  #E4DAC2; 
+    color: rgb(3, 0, 0);
+    font-weight: bold;
+    border-radius: 0.2rem;
+    box-shadow: 0 0 5px 1px rgb(130, 129, 129);
+    border: none;
+    padding: 0.5% 1.7%;
+}
+.signout
+{
+    cursor: pointer;
+    margin: 0 2%;
+    
+}
+.notshow
+{
+    display: none;
+}
+.showpage
+{
+    display: flex!important;
+}
+
+.balancemessage
+{
+    text-align: left;
+    display: flex;
+    margin-bottom: 5px;
+    align-content: left;
+}
+.balancespan
+{
+    margin-left: 5px;
+}
+.getamountpage
+{
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    min-width: 20%;
+    margin: auto;
+    padding: 2%;
+    background-color: #E8E6D9;;
+    box-shadow: 0 0 10px 1px rgb(86, 86, 86);
+}
+.historytable td,th ,.bookingtable td,th, .tickettable td,th
+{
+    
+    width: 20%;
+    border-top:2px solid black ;
+    padding: 2%;
+    margin: 0;
+    
+}
+
+.historytable,.bookingtable,.tickettable
+{
+    min-width: 100%;
+    margin: auto;
+    padding: 5%;
+    border-collapse: collapse;
+}
+.table
+{
+    width: 50%;
+    padding:3% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    border-radius: 0.4rem;
+    background-color: #E8E6D9;
+    box-shadow: 0 0 12px 1px rgb(97, 96, 96);
+}
+.passengersform
+{
+    display: none;
+}
+.edit
+{
+    background-color: blue !important;
+    color: white;
+    padding: 5% 7%;
+    border-radius: 0.5rem;
+    width: fit-content!important;
+    margin-right: 2%;
+    border: none;
+    cursor: pointer;
+}
+.delete, .buy,.add,.confirmadd
+{
+    background-color: red;
+    padding:5% 7%;
+    width: fit-content!important;
+    color: white;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+.buy,.add,.confirmadd
+{
+    background-color: green!important;
+}
+.add
+{
+    width: 20%;
+    padding: 1.5% 2%;
+    cursor: pointer;
+
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Card Management</title>
+    <link rel="stylesheet" href="StyleSheet/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div id="index" class="index">
+            <div class="options">
+                <button id="new-user" class="new-user  btn">New User</button>
+                <button id="user" class="selected user btn">Existing User</button>
+            </div>
+            <div class="page" id="signinpage">
+                <div class="input">
+                    <label for="email">Email </label>
+                    <input class="input-box" type="email" name="email" id="email" onfocusout="checkmail('email')">
+                    <label id="emailmessage" class="message">Invalid email</label>
+                </div>
+                <div class="input">
+                    <label for="password">Password </label>
+                    <input class="input-box" type="password" name="password" id="password" >
+                    <label id="signinmessage" class="message">Email ID or password Incorrect</label>
+                </div>
+                <button id="signin" class="pagebtn" onclick="signIn()">SignIn</button>
+            </div>
+            <div class="page notshow" id="signuppage">
+                <div class="input">
+
+                    <label for="username">UserName</label>
+                    <input class="input-box"  type="text" name="username" id="username" onfocusout="checkusername('username')">
+                    <label class="message" id="usernamemessage">Enter a valid Name</label>
+                </div>
+                <div class="input">
+                    <label for="email1">Email </label>
+                    <input class="input-box"  type="email" name="email" id="email1" onfocusout="checkmail('email1')">
+                    <label class="message" id="email1message"></label>
+                </div>
+                <div class="input">
+                    <label for="password1">Password </label>
+                    <input class="input-box" type="password" name="password" id="password1" onfocusout="checkPass('password1')">
+                    <label class="message" id="password1message">Too Short or In valid</label>
+                </div>
+                <div class="input">
+                    <label for="confirmpassword">Confirm Password </label>
+                    <input class="input-box" type="text" name="confirmpassword" id="confirmpassword" onkeyup="confirmPass('confirmpassword')">
+                    <label class="message" id="confirmpasswordmessage">Password doesn't match</label>
+                </div>
+                <div class="input">
+                    <label for="phone">Phone Number </label>
+                    <input class="input-box" type="tel" name="phone" id="phone" onfocusout="checkPhone('phone')">
+                    <label class="message" id="phonemessage">Invalid phone number</label>
+                </div>
+                <button id="signup" onclick="signUp()" class="pagebtn">SignUp</button>
+            </div>
+
+        </div>
+        <div class="mainpage notshow" id="mainpage">
+            <div class="namedisplay">
+                <label id="namedisplay" >siva</label>
+                <span class="pipe1 pipe"></span>
+                <span onclick="signoutselected()" id="signout" class="signout">SignOut</span>
+            </div>
+            <ul class="menubar">
+                <li onclick="homeselected()" id="home" class="selectedmenu menu" >Home</li>
+                <span class="pipe"></span>
+                <li onclick="ticketselected()" id="ticket" class="menu" >TicketDetails</li>
+                <span class="pipe"></span>
+                <li onclick="bookticketsselected()" id="booktickets" class="menu">Book Tickets</li>
+                <span class="pipe"></span>
+                <li onclick="topupselected()" id="topup" class="menu">Topup</li>
+                <span class="pipe"></span>
+                <li onclick="bookinghistoryselected()" id="bookinghistory" class="menu">Booking History</li>
+                <span class="pipe"></span>
+                <li onclick="showbalanceselected()" id="showbalance" class="menu">Show Balance</li>
+                
+            </ul>
+            <div id="homepage" class="homepage showpage menupage">
+                
+            </div>
+            <div class="ticketpage menupage" id="ticketpage">
+                <div id="table" class="table">
+                    <button class="add" id="add" onclick="addRouteForm()">Add</button>
+                    <table id="tickettable" class="tickettable" >
+
+                    </table>
+                </div>
+                <div id="addrouteform" class="passengersform getamountpage">
+                    <div class="addrouteform">
+
+                        <div class="input">
+                            <label for="fromlocation">From Location</label>
+                            <input class="input-box" type="text" id="fromlocation" onfocusout="checkfromlocation('fromlocation')">
+                            <label id="fromlocationmessage" class="message">Invalid location name</label>
+                        </div>
+                        <div class="input">
+                            <label for="tolocation">To Locationn</label>
+                            <input class="input-box" type="text" id="tolocation" onfocusout="checktolocation('tolocation')" >
+                            <label id="tolocationmessage" class="message">Invalid location name</label>
+                        </div>
+                        <div class="input">
+                            <label for="ticketfair">Fair</label>
+                            <input class="input-box" type="number" id="ticketfair" onfocusout="checkticketfair('ticketfair')">
+                            <label id="ticketfairmessage" class="message">Invalid amount</label>
+                        </div>
+                        <div>
+                            <button class="confirmadd" id="confirmadd" onclick="confirmAddRoute()">confirm</button>
+                            <button class="delete" id="cancel" onclick="cancelAddRoute()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bookingpage menupage" id="bookingpage">
+                <div class="table" id="handlebooking">
+                    <table id="bookingtable"  class="bookingtable">
+    
+                    </table>
+                </div>
+                <div id="passengersform" class="passengersform getamountpage">
+                    <div class="input">
+                        <label for="passengerscount">Number of Person</label>
+                        <input class="input-box" type="number" id="passengerscount">
+                    </div>
+                    <div>
+                        <button onclick="ConfirmBooking()" id="confirmBooking" class="confirmbook">Confirm</button>
+                        <button onclick="CancelBooking()" id="CancelBooking" class="delete">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="topuppage menupage" id="topuppage">
+                <div class="getamountpage">
+                    <div id="balancemessage" class="balancemessage">
+                        
+                    </div>
+                    <div class="input">
+                        <label for="amount">Enter Amount</label>
+                        <input class="input-box" type="text" id="amount" onkeyup="checkamount('amount')">
+                        <label id="amountmessage" class="message">Enter a valid Amount</label>
+                    </div>
+                    <button onclick="recharge()" class="pagebtn">Confirm</button>
+                </div>
+            </div>
+            <div class="historypage menupage" id="historypage">
+                <div id="historyinitiate" class="table">
+                    <table id="historytable"  class="historytable">
+    
+                    </table>
+                </div>
+            </div>
+            <div class="showbalancepage menupage" id="showbalancepage">
+
+            </div>
+        </div>
+    </div>
+    <script src="JavaScript/index.js"></script>
+</body>
+</html>
